@@ -56,6 +56,32 @@ python3 employer_verify.py
 - Expected Output (Tampered):
       - Employer verification failed. Certificate may be forged.
 
+## Practical Examples
+### Example 1: Issue Another Student’s Certificate
+#### Open university_issue.py and change the certificate section:
+```bash
+certificate = {
+    "name": "Rahul",
+    "degree": "MBA Finance",
+    "year": "2026"
+}
+```
+#### Run again → this will generate new files in data/.
+- Then run student_holder.py and employer_verify.py to verify Rahul’s MBA certificate.
+
+### Example 2: Simulate Forgery
+Edit data/certificate.json manually:
+```bash
+{
+  "name": "Alice",
+  "degree": "MBA",
+  "year": "2025"
+}
+```
+Now run employer_verify.py.
+- Result:
+- Employer verification failed. Certificate may be forged.
+
 
 
 
